@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" href="/images/title.png">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询-->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    -->
+  </head>
+  <body>
+    <header>
+      <p>课堂助手</p>
+      <p class="username">= user.username</p>
+    </header>
+    <span id="signup-tab">登录</span><span id="signin-tab">注册</span>
+    <div id="signup" class="row clearfix signup-form">
+      <div class="col-md-12 column">
+        <h3 class="signup-h3">用户注册</h3>
+        <form id="register_form" action="/user/signup" method="post" class="form-horizontal">
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+            <input id="register_username" name="username" data-toggle="tooltip-input" data-trigger="focus" data-placement="top" title="用户名为6~18位英文字母、数字或下划线，必须以英文字母开头" type="text" placeholder="用户名" maxlength="18" class="form-control input-signup">
+          </div>
+          <p id="register_err_username" class="error"></p>
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input id="register_email" name="email" data-toggle="tooltip-input" data-trigger="focus" type="email" data-placement="top" title="请填写您常用的邮箱" placeholder="邮箱" class="form-control input-signup">
+          </div>
+          <p id="register_err_email" class="error"></p>
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input id="register_password" name="password" data-toggle="tooltip-input" data-trigger="focus" data-placement="top" title="密码为6~12位数字、大小写字母、中划线、下划线" type="password" placeholder="密码" maxlength="12" class="form-control input-signup">
+          </div>
+          <p id="register_err_password" class="error"></p>
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input id="register_repeatpass" name="repeatpass" data-toggle="tooltip-input" data-trigger="focus" data-placement="top" title="请输入和前面相同的密码" type="password" placeholder="重复密码" maxlength="12" class="form-control input-signup">
+          </div>
+          <p id="register_err_repeatpass" class="error"></p>
+          <button id="register_reset" type="reset" class="btn btn-default">重置</button>
+          <button id="register" type="submit" class="btn btn-default">注册</button>
+        </form>
+      </div>
+    </div>
+    <div id="signin" class="row clearfix signup-form">
+      <div class="col-md-12 column">
+        <h3 class="signup-h3">用户登录</h3>
+        <form id="login_form" action="/user/signin" method="post" class="form-horizontal">
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-o fa-fw"></i></span>
+            <input id="login_username" name="username" type="text" placeholder="用户名" maxlength="18" class="form-control input-signup">
+          </div>
+          <p id="login_err_username" class="error"></p>
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input id="login_password" name="password" type="password" placeholder="密码" maxlength="12" class="form-control input-signup">
+          </div>
+          <p id="login_err_password" class="error"></p>
+          <button id="login_reset" type="reset" class="btn btn-default">重置</button>
+          <button id="login" type="submit" class="btn btn-default">登录</button>
+        </form>
+      </div>
+    </div>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap-notify.min.js"></script>
+    <script src="/javascripts/validator.js"></script>
+    <script src="/javascripts/signin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+p.switch-sign
+  span#signin-tab 登录
+  span#signup-tab 注册
+#signup.row.clearfix.signup-form
+  .col-md-12.column
+    h3.signup-h3 用户注册
+    form#register_form.form-horizontal(action='/user/signup', method='post')
+      .input-group
+        span.input-group-addon
+          i.fa.fa-user-o.fa-fw
+        input#register_username.form-control.input-signup(name='username', data-toggle='tooltip-input', data-trigger='focus', data-placement='top', title='用户名为6~18位英文字母、数字或下划线，必须以英文字母开头', type='text', placeholder='用户名', maxlength='18', value=user.username)
+      p#register_err_username.error!= register_error.username
+      .input-group
+        span.input-group-addon
+          i.fa.fa-envelope-o.fa-fw
+        input#register_email.form-control.input-signup(name='email', data-toggle='tooltip-input', data-trigger='focus', type='email', data-placement='top', title='请填写您常用的邮箱', placeholder='邮箱', value=user.email)
+      p#register_err_email.error!= register_error.email
+      .input-group
+        span.input-group-addon
+          i.fa.fa-key.fa-fw
+        input#register_password.form-control.input-signup(name='password', data-toggle='tooltip-input', data-trigger='focus', data-placement='top', title='密码为6~12位数字、大小写字母、中划线、下划线', type='password', placeholder='密码', maxlength='12', value='')
+      p#register_err_password.error!= register_error.password
+      .input-group
+        span.input-group-addon
+          i.fa.fa-key.fa-fw
+        input#register_repeatpass.form-control.input-signup(name='repeatpass', data-toggle='tooltip-input', data-trigger='focus', data-placement='top', title='请输入和前面相同的密码', type='password', placeholder='重复密码', maxlength='12', value=user.repeatpass)
+      p#register_err_repeatpass.error!= register_error.repeatpass
+      button#register_reset.btn.btn-default.sign(type='reset') 重置
+      button#register.btn.btn-default.sign(type='submit') 注册
+#signin.row.clearfix.signup-form
+  .col-md-12.column
+    h3.signup-h3 用户登录
+    form#login_form.form-horizontal(action='/user/signin', method='post')
+      .input-group
+        span.input-group-addon
+          i.fa.fa-user-o.fa-fw
+        input#login_username.form-control.input-signup(name='username', type='text', placeholder='用户名', maxlength='18', value=user.username)
+      p#login_err_username.error!= login_error.username
+      .input-group
+        span.input-group-addon
+          i.fa.fa-key.fa-fw
+        input#login_password.form-control.input-signup(name='password', type='password', placeholder='密码', maxlength='12', value='')
+      p#login_err_password.error!= login_error.password
+      button#login_reset.btn.btn-default.sign(type='reset') 重置
+      button#login.btn.btn-default.sign(type='submit') 登录
