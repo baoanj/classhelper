@@ -11,7 +11,6 @@ body {
 }
 
 
-
 /*==============================================*/
 
 
@@ -247,7 +246,109 @@ form.form-horizontal {
 /*==============================================*/
 
 
-/*老师页面样式*/
+/*二维码签到样式*/
 
 
 /*==============================================*/
+
+.col-md-4.column {
+	padding: 10px;
+}
+
+.teacherbox {
+	border: 1px solid #A2A2A2;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#qrsvg {
+	width: 80vh;
+	height: 80vh;
+}
+
+#teacher button, #teacher a {
+	border: 1px solid #777;
+	color: black;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+}
+
+.inputbox {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+a#generqr {
+	border: 1px solid #777;
+	color: black;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+	text-decoration: none;
+	float: right;
+	margin-left: 10px;
+}
+
+input#qrmsg {
+	display: block;
+	width: 100%;
+	padding: 5px 10px;
+	border: 1px solid #777;
+	border-radius: 4px;
+	outline: none;
+}
+
+a#signrecord {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	text-align: center;
+}
+
+#teacher h3 {
+	text-align: center;
+	margin: 10px;
+}
+
+h1.signtitle {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 2em;
+}
+
+form.signform {
+	width: 100%;
+	padding: 2em;
+	position: relative;
+}
+
+input#signinput {
+	display: block;
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 2em;
+	border: 1px solid #777;
+	border-radius: 4px;
+	outline: none;
+	margin-bottom: 1em;
+}
+
+button#signsubmit {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 3em;
+	height: 3em;
+	font-size: 2em;
+	border: 1px solid #777;
+	color: black;
+	border-radius: 50%;
+	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+}

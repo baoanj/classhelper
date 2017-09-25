@@ -1,4 +1,30 @@
-p
-  | 欢迎您，
-  = user.username
-  | 老师！
+#teacher.container
+  .row.clearfix
+    .col-md-4.column
+      .teacherbox
+        h3
+          | 二维码签到
+        label(for='qrmsg') 您有什么要告诉学生的
+        br
+        a#generqr(href='#modal-container-41449', role='button', data-toggle='modal') 生成二维码
+        div.inputbox
+          input#qrmsg(type='text')
+        #modal-container-41449.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                span.close(data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title
+              .modal-body
+                #qrsvg
+              .modal-footer
+                button(data-dismiss='modal') 关闭
+        a#signrecord(href='/qr/record') 签到记录
+    .col-md-4.column
+      .teacherbox
+        h3
+          | 收作业（开发中）
+    .col-md-4.column
+      .teacherbox
+        h3
+          | Wiki（开发中）

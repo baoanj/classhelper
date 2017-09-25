@@ -1,3 +1,5 @@
+'use strict';
+
 var debug = require('debug')('classhelper:models:userModel');
 var bcrypt = require('bcrypt');
 

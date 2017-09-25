@@ -1,3 +1,5 @@
+'use strict';
+
 $(function() {
   $('#signup-tab').click(function(e) {
     $('#signup').css('display', 'block');

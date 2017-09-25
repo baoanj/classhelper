@@ -11,6 +11,7 @@ var debug = require('debug')('classhelper:app');
 module.exports = function(db) {
 	var index = require('./routes/index')(db);
 	var user = require('./routes/user')(db);
+	var qrsign = require('./routes/qrsign')(db);
 
 	var app = express();
 
@@ -36,6 +37,7 @@ module.exports = function(db) {
 
 	app.use('/', index);
 	app.use('/user', user);
+	app.use('/qr', qrsign);
 
 	// catch 404 and forward to error handler
 	app.use(function(req, res, next) {

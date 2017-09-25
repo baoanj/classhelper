@@ -1,3 +1,5 @@
+'use strict';
+
 /*--------客户端与服务端共用的表单校验--------------*/
 var validator = {
   password: "",

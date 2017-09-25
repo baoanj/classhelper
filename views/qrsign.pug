@@ -1,0 +1,11 @@
+doctype html
+html(lang='zh-cn')
+  head
+    meta(charset='UTF-8')
+    title= classmsg
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  body
+    h1.signtitle= classmsg
+    form.signform(action='/qr/sign?id=' + id + '&date=' + date, method='post')
+      input#signinput(type="text" name="signmsg")
+      button#signsubmit(type="submit") 提交
