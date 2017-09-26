@@ -1,11 +1,6 @@
 extends layout
 
 block content
-  header
-    a#home(href='/', title='首页') 课堂助手
-    if exist
-      a#signout(href='/user/signout', title='退出登录')
-        i.fa.fa-sign-out.fa-fw
   if exist
     include teacher.pug
   else

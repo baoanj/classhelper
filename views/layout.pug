@@ -16,4 +16,9 @@ html(lang='zh-cn')
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
   body
+    header
+      a#home(href='/', title='首页') 课堂助手
+      if exist
+        a#signout(href='/user/signout', title='退出登录')
+          i.fa.fa-sign-out.fa-fw
     block content

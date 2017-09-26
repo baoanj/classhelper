@@ -11,6 +11,7 @@ body {
 }
 
 
+
 /*==============================================*/
 
 
@@ -90,6 +91,7 @@ body {
 }
 
 
+
 /*==============================================*/
 
 
@@ -117,6 +119,7 @@ a#signout {
 
 
 
+
 /*==============================================*/
 
 
@@ -137,6 +140,7 @@ a.navbar-brand:before {
 	font-weight: normal;
 	margin-right: 0.4em;
 }
+
 
 
 /*==============================================*/
@@ -243,6 +247,7 @@ form.form-horizontal {
 }
 
 
+
 /*==============================================*/
 
 
@@ -266,7 +271,8 @@ form.form-horizontal {
 	height: 80vh;
 }
 
-#teacher button, #teacher a {
+#teacher button,
+#teacher a {
 	border: 1px solid #777;
 	color: black;
 	border-radius: 5px;
@@ -351,4 +357,36 @@ button#signsubmit {
 	cursor: pointer;
 	outline: none;
 	background-color: transparent;
+}
+
+.sign-record-box {
+	width: 80%;
+	margin: 20px auto;
+}
+
+ul.sign-record-item {
+	list-style: none;
+	margin: 20px 0;
+}
+
+ul.sign-record-item li {
+	display: none;
+	border: 1px solid #777;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+ul.sign-record-item:first-of-type li {
+	display: inline-block;
+}
+
+p.sign-record-date {
+	width: 100%;
+	padding: 10px 0;
+	background-color: #B3B3B3;
+	margin-bottom: 10px;
+	text-align: center;
+	color: white;
+	cursor: pointer;
 }

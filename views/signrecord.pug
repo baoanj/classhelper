@@ -1,3 +1,11 @@
-ul
-  each val in records
-    li= val
+extends layout
+
+block content
+  .sign-record-box
+    each item, index in records
+      ul.sign-record-item
+        p.sign-record-date= index
+        each val in item
+          li= val
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/signrecord.js')
