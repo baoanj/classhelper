@@ -2,7 +2,10 @@ extends layout
 
 block content
   if exist
-    include teacher.pug
+    if user.role === 'teacher'
+      include teacher.pug
+    else
+      include student.pug
   else
     include sign.pug
   script(src='/javascripts/jquery.js')
@@ -11,3 +14,4 @@ block content
   script(src='/javascripts/validator.js')
   script(src='/javascripts/sign.js')
   script(src='/javascripts/generqr.js')
+  script(src='/javascripts/teastu.js')

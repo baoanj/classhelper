@@ -12,6 +12,7 @@ body {
 
 
 
+
 /*==============================================*/
 
 
@@ -92,6 +93,7 @@ body {
 
 
 
+
 /*==============================================*/
 
 
@@ -105,6 +107,7 @@ header {
 	padding: 10px;
 	font-size: 2em;
 	margin-bottom: 10px;
+	overflow: auto;
 }
 
 a#home {
@@ -112,9 +115,14 @@ a#home {
 	color: white;
 }
 
-a#signout {
+a#signout,
+span.welcome {
 	float: right;
 	color: white;
+}
+
+span.welcome {
+	margin-right: 20px;
 }
 
 
@@ -140,6 +148,7 @@ a.navbar-brand:before {
 	font-weight: normal;
 	margin-right: 0.4em;
 }
+
 
 
 
@@ -180,6 +189,18 @@ a.navbar-brand:before {
 
 .input-group {
 	margin: 1em 0;
+}
+
+.input-group.register-radio {
+	width: 100%;
+}
+
+.input-group.register-radio input {
+	text-align: center;
+}
+
+.input-group.register-radio input:last-of-type {
+	margin-left: 20px;
 }
 
 h3.signup-h3 {
@@ -248,6 +269,7 @@ form.form-horizontal {
 
 
 
+
 /*==============================================*/
 
 
@@ -260,7 +282,8 @@ form.form-horizontal {
 	padding: 10px;
 }
 
-.teacherbox {
+.teacherbox,
+.studentbox {
 	border: 1px solid #A2A2A2;
 	border-radius: 10px;
 	padding: 10px;
@@ -269,17 +292,6 @@ form.form-horizontal {
 #qrsvg {
 	width: 80vh;
 	height: 80vh;
-}
-
-#teacher button,
-#teacher a {
-	border: 1px solid #777;
-	color: black;
-	border-radius: 5px;
-	padding: 5px 10px;
-	cursor: pointer;
-	outline: none;
-	background-color: transparent;
 }
 
 .inputbox {
@@ -295,12 +307,12 @@ a#generqr {
 	cursor: pointer;
 	outline: none;
 	background-color: transparent;
-	text-decoration: none;
 	float: right;
 	margin-left: 10px;
+	text-decoration: none;
 }
 
-input#qrmsg {
+.modal-input {
 	display: block;
 	width: 100%;
 	padding: 5px 10px;
@@ -309,14 +321,8 @@ input#qrmsg {
 	outline: none;
 }
 
-a#signrecord {
-	display: block;
-	width: 100%;
-	text-decoration: none;
-	text-align: center;
-}
-
-#teacher h3 {
+#teacher h3,
+#student h3 {
 	text-align: center;
 	margin: 10px;
 }
@@ -389,4 +395,89 @@ p.sign-record-date {
 	text-align: center;
 	color: white;
 	cursor: pointer;
+}
+
+
+/*==============================================*/
+
+
+/*交作业样式*/
+
+
+/*==============================================*/
+
+.col-md-4.column {
+	padding: 10px;
+}
+
+.studentbox {
+	border: 1px solid #A2A2A2;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+button.hw,
+a.hw {
+	border: 1px solid #777;
+	color: black;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+#student h3 {
+	text-align: center;
+	margin: 10px;
+}
+
+a.hw {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+a#teacher-create-class,
+a#student-add-class {
+	margin: 20px 0;
+}
+
+.classbox {
+	border: 1px solid #777;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+	text-align: center;
+}
+
+.classbox h2 {
+	margin: 0 0 20px 0;
+}
+
+h2.class-title {
+	text-align: center;
+}
+
+.row.clearfix.tea-class-head {
+	text-align: center;
+}
+
+a#teacher-create-hw {
+	text-decoration: none;
+	text-align: center;
+	margin: 10px;
+	outline: none;
+	color: #4560D8;
+}
+
+input.modal-input[name=submithw] {
+	outline: none;
+}
+
+textarea#hwmsg {
+	max-width: 100%;
+	min-width: 100%;
 }

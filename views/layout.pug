@@ -1,10 +1,9 @@
 doctype html
 html(lang='zh-cn')
   head
-    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title= title
-    link(rel='icon', href='/images/title.png')
     link(href="https://fonts.googleapis.com/css?family=Lobster", rel="stylesheet")
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css')
@@ -21,4 +20,11 @@ html(lang='zh-cn')
       if exist
         a#signout(href='/user/signout', title='退出登录')
           i.fa.fa-sign-out.fa-fw
+        span.welcome
+          | 欢迎，
+          != user.username
+          if user.role === 'teacher'
+            | 老师
+          else
+            | 同学
     block content

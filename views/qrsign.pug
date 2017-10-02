@@ -8,4 +8,4 @@ html(lang='zh-cn')
     h1.signtitle= title
     form.signform(action='/qr/sign?id=' + id + '&date=' + date, method='post')
       input#signinput(type="text" name="signmsg")
-      button#signsubmit(type="submit") 提交
+      button#signsubmit.hw(type="submit") 提交

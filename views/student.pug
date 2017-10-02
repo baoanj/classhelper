@@ -1,1 +1,33 @@
-p= user.username
+#student.container
+  .row.clearfix
+    .col-md-4.column
+      .studentbox
+        h3
+          | 交作业
+        a#student-add-class.hw(href='#modal-container-41447', role='button', data-toggle='modal') 添加班级
+        #modal-container-41447.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                span.close(data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title
+              .modal-body
+                form(action='/hw/addclass', method='post')
+                  .form-group
+                    label(for='classid') 班级ID
+                    input#classid.modal-input(type='text', name='classid')
+                  .form-group
+                    label(for='classpwd') 班级密码
+                    input#classpwd.modal-input(type='password', name='classpwd')
+                  button#addclass.hw(type='submit') 提交
+              .modal-footer
+                button.hw(data-dismiss='modal') 关闭
+        a#student-select-class.hw(href='/hw/classes') 进入班级
+    .col-md-4.column
+      .studentbox
+        h3
+          | Wiki（开发中）
+    .col-md-4.column
+      .studentbox
+        h3
+          | 交流群（开发中）

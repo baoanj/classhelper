@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container
+    .row.clearfix.tea-class-head
+      h2.class-title= theclass.classmsg
+      a#teacher-create-hw.fa.fa-plus-circle.fa-5x(href='#modal-container-41450', role='button', data-toggle='modal', title='创建作业')
+      #modal-container-41450.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              span.close(data-dismiss='modal', aria-hidden='true') ×
+              h4#myModalLabel.modal-title
+            .modal-body
+              form(action='/hw/class/createhw?classid=' + theclass.classid, method='post')
+                .form-group
+                  label(for='hwmsg') 作业信息
+                  textarea#hwmsg.modal-input(type='text', name='hwmsg')
+                button#createhw.hw(type='submit') 提交
+            .modal-footer
+              button.hw(data-dismiss='modal') 关闭
+    .row.clearfix
+      each val in teahws
+        .col-md-6.column
+          .classbox
+            h2= val.hwmsg
+            p= val.fmdate
+            a#check-hw.hw(href='/hw/class/detail?classid=' + theclass.classid + '&date=' + val.date) 查看作业提交情况
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')
+  script(src='/javascripts/class.js')

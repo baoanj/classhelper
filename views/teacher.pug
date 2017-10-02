@@ -6,10 +6,10 @@
           | 二维码签到
         label(for='qrmsg') 您有什么要告诉学生的
         br
-        a#generqr(href='#modal-container-41449', role='button', data-toggle='modal') 生成二维码
+        a#generqr(href='#modal-container-41448', role='button', data-toggle='modal') 生成二维码
         div.inputbox
-          input#qrmsg(type='text')
-        #modal-container-41449.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          input#qrmsg.modal-input(type='text')
+        #modal-container-41448.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
           .modal-dialog
             .modal-content
               .modal-header
@@ -18,12 +18,31 @@
               .modal-body
                 #qrsvg
               .modal-footer
-                button(data-dismiss='modal') 关闭
-        a#signrecord(href='/qr/record') 签到记录
+                button.hw(data-dismiss='modal') 关闭
+        a#signrecord.hw(href='/qr/record') 签到记录
     .col-md-4.column
       .teacherbox
         h3
-          | 收作业（开发中）
+          | 收作业
+        a#teacher-create-class.hw(href='#modal-container-41449', role='button', data-toggle='modal') 创建班级
+        #modal-container-41449.modal.fade(role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                span.close(data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title
+              .modal-body
+                form(action='/hw/createclass', method='post')
+                  .form-group
+                    label(for='classmsg') 班级信息
+                    input#classmsg.modal-input(type='text', name='classmsg')
+                  .form-group
+                    label(for='classpwd') 班级密码
+                    input#classpwd.modal-input(type='password', name='classpwd')
+                  button#createclass.hw(type='submit') 提交
+              .modal-footer
+                button.hw(data-dismiss='modal') 关闭
+        a#teacher-select-class.hw(href='/hw/classes') 进入班级
     .col-md-4.column
       .teacherbox
         h3

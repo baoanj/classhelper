@@ -14,7 +14,6 @@ module.exports = function(db) {
         user.password = hash;
         delete user.repeatpass;
         return collection.insert(user).then(function(result) {
-          debug(user.username + ' registed successfully!');
           return Promise.resolve(user);
         });
       });

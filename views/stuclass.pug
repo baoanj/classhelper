@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .container
+    .row.clearfix
+      h2.class-title= theclass.classmsg
+    .row.clearfix
+      each val in stuhws
+        .col-md-6.column
+          .classbox
+            h2= val.hwmsg
+            p= val.fmdate
+            form(role='form', action='/hw/class/submithw?classid=' + theclass.classid + '&date=' + val.date, method='post')
+              .form-group
+                input.modal-input(type='file', name='submithw')
+              button#submit-hw.hw(type='submit') Submit
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')
+  script(src='/javascripts/class.js')

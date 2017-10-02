@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container
+    .row.clearfix
+      each val, index in classes
+        .col-md-6.column
+          .classbox
+            h2= val.classmsg
+            table.table
+              tbody
+                tr.info
+                  td
+                    | ID
+                  td= val._id
+                tr.info
+                  td
+                    | 密码
+                  td= val.classpwd
+                tr.info
+                  td
+                    | 人数
+                  td 获取中..
+            a#enter-class.hw(href='/hw/class/' + val._id) 进入班级
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')
+  script(src='/javascripts/classes.js')

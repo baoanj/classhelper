@@ -12,6 +12,7 @@ module.exports = function(db) {
 	var index = require('./routes/index')(db);
 	var user = require('./routes/user')(db);
 	var qrsign = require('./routes/qrsign')(db);
+	var hw = require('./routes/hw')(db);
 
 	var app = express();
 
@@ -20,7 +21,7 @@ module.exports = function(db) {
 	app.set('view engine', 'pug');
 
 	// uncomment after placing your favicon in /public
-	//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+	app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 	app.use(logger('dev'));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,6 +39,7 @@ module.exports = function(db) {
 	app.use('/', index);
 	app.use('/user', user);
 	app.use('/qr', qrsign);
+	app.use('/hw', hw);
 
 	// catch 404 and forward to error handler
 	app.use(function(req, res, next) {

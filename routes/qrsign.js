@@ -41,7 +41,12 @@ module.exports = function(db) {
 				if (!records[val.date]) records[val.date] = [];
 				records[val.date].push(val.content);
 			});
-			res.render('signrecord', { exist: true, records: sortRecordsByDate(records), title: '签到记录' });
+
+			var user = {
+				username: req.session.user.username,
+				role: req.session.user.role
+			};
+			res.render('signrecord', { exist: true, user: user, records: sortRecordsByDate(records), title: '签到记录' });
 		});
 	});
 

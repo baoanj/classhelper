@@ -6,14 +6,16 @@ var debug = require('debug')('classhelper:routes:index');
 module.exports = function(db) {
   /* GET home page. */
   router.get('/', function(req, res, next) {
-    var username = '';
+    var username = '', role = '';
     var exist = false;
     if (req.session.user) {
       username = req.session.user.username;
+      role = req.session.user.role;
       exist = true;
     }
     var user = {
-      username: username
+      username: username,
+      role: role
     };
     res.render('index', {
       title: '课堂助手',

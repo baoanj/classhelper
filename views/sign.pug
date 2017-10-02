@@ -23,8 +23,11 @@ p.switch-sign
       .input-group
         span.input-group-addon
           i.fa.fa-key.fa-fw
-        input#register_repeatpass.form-control.input-signup(name='repeatpass', data-toggle='tooltip-input', data-trigger='focus', data-placement='top', title='请输入和前面相同的密码', type='password', placeholder='重复密码', maxlength='12', value=user.repeatpass)
+        input#register_repeatpass.form-control.input-signup(name='repeatpass', data-toggle='tooltip-input', data-trigger='focus', data-placement='top', title='请输入和前面相同的密码', type='password', placeholder='重复密码', maxlength='12', value='')
       p#register_err_repeatpass.error!= register_error.repeatpass
+      .input-group.register-radio
+        <input type="radio" name="role" value="student" checked="checked"/> 学生
+        <input type="radio" name="role" value="teacher"/> 老师
       button#register_reset.btn.btn-default.sign(type='reset') 重置
       button#register.btn.btn-default.sign(type='submit') 注册
 #signin.row.clearfix.signup-form

@@ -110,7 +110,6 @@ $(function() {
         if (validator.isFieldValid(field, $(this).val())) {
           $.post('/user/validate-unique', { field: field, value: $(this).val() }, function(data, status) {
             if (status === 'success') {
-              console.log(data)
               if (!data.isUnique) {
                 $(self).addClass('inputRigth');
               } else {
