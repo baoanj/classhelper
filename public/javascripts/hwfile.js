@@ -1,20 +1,13 @@
 'use strict';
 
 $(function() {
-	var tbodys = $('tbody');
-	for (var i = 0; i < tbodys.length; i++) {
+	var inputs = $('input.hw-score');
+	for (var i = 0; i < inputs.length; i++) {
 		(function(i) {
-			$.get('/hw/class/submits', {
-					classid: $(tbodys[i]).attr('classid'),
-					date: $(tbodys[i]).attr('date')
-				})
+			$.get('/hw/class/score', { filename: $(inputs[i]).attr('filename') })
 				.done(function(data, status) {
 					if (status === 'success') {
-						data.forEach(function(val) {
-							$(tbodys[i]).append("<tr><td><a href='/hw/class/download?filename=" + val.filename +
-								"'><span>" + val.originalFilename + "</span></a></td><td>" + val.fileDate +
-								"</td><td>" + val.score + "</td></tr>");
-						});
+						$(inputs[i]).val(data);
 					}
 				})
 				.fail(function() {
@@ -22,6 +15,21 @@ $(function() {
 				});
 		})(i);
 	}
+
+	$('button.hw').click(function(e) {
+		$.post('/hw/class/updatescore', {
+				filename: $(e.target).parent().prev().find('input.hw-score').attr('filename'),
+				score: $(e.target).parent().prev().find('input.hw-score').val()
+			})
+			.done(function(data, status) {
+				if (status === 'success') {
+					$(notify(data));
+				}
+			})
+			.fail(function() {
+				notify("服务器走丢了");
+			});
+	});
 
 	(function($) {
 		$.fn.extend({

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+    .row.clearfix
+      h2.class-title
+        | 作业布置时间：
+        = theHw.date
+    #hw-detail.row.clearfix
+      table
+        thead
+          tr
+            th 作业文件
+            th 提交时间
+            th 分数
+            th 打分
+        tbody
+          each file in hwFiles
+            tr
+              td
+                a(href='/hw/class/download?filename=' + file.filename, title=file.originalFilename)
+                  span= file.originalFilename
+              td= file.fileDate
+              td
+                label 打分：
+                input.hw-score(filename=file.filename, type='text')
+              td
+                button.hw 提交
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/hwfile.js')

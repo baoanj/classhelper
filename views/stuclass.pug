@@ -10,10 +10,19 @@ block content
           .classbox
             h2= val.hwmsg
             p= val.fmdate
-            form(role='form', action='/hw/class/submithw?classid=' + theclass.classid + '&date=' + val.date, method='post')
+            form(role='form', enctype='multipart/form-data', action='/hw/class/submithw?classid=' + theclass.classid + '&date=' + val.date, method='post')
               .form-group
                 input.modal-input(type='file', name='submithw')
-              button#submit-hw.hw(type='submit') Submit
+              button#submit-hw.hw(type='submit') 提交
+            .stuclass
+              table
+                caption 提交情况
+                thead
+                  tr
+                    th 作业文件
+                    th 提交时间
+                    th 分数
+                tbody(classid=theclass.classid, date=val.date)
   script(src='/javascripts/jquery.js')
   script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')
   script(src='/javascripts/class.js')

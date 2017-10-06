@@ -4,14 +4,15 @@ $(function() {
   var boxes = $('.classbox');
   for (var i = 0; i < boxes.length; i++) {
     (function(i) {
-      $.post('/hw/classstus', { id: $(boxes[i]).find('tr:first-of-type td:nth-of-type(2)').text() },
-        function(data, status) {
+      $.post('/hw/classstus', { id: $(boxes[i]).find('tr:first-of-type td:nth-of-type(2)').text() })
+        .done(function(data, status) {
           if (status === 'success') {
             $(boxes[i]).find('tr:last-of-type td:nth-of-type(2)').text(data.length);
           }
-        }).error(function() {
-        notify("服务器走丢了");
-      });
+        })
+        .fail(function() {
+          notify("服务器走丢了");
+        });
     })(i);
   }
 

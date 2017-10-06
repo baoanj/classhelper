@@ -45,21 +45,23 @@ $(function() {
           $(this).removeClass('inputError').removeClass('inputRigth');
           usernameFlag = false;
         } else {
-          $.post('/user/validate-username', { username: $(this).val() }, function(data, status) {
-            if (status === 'success') {
-              if (data.isExisted) {
-                $(self).addClass('inputRigth');
-                usernameFlag = true;
-              } else {
-                $(self).addClass('inputError');
-                notify("用户名不存在", 'danger', 'fa fa-exclamation-triangle fa-fw');
-                usernameFlag = false;
+          $.post('/user/validate-username', { username: $(this).val() })
+            .done(function(data, status) {
+              if (status === 'success') {
+                if (data.isExisted) {
+                  $(self).addClass('inputRigth');
+                  usernameFlag = true;
+                } else {
+                  $(self).addClass('inputError');
+                  notify("用户名不存在", 'danger', 'fa fa-exclamation-triangle fa-fw');
+                  usernameFlag = false;
+                }
               }
-            }
-          }).error(function() {
-            notify("服务器走丢了", 'danger', 'fa fa-exclamation-triangle fa-fw');
-            usernameFlag = false;
-          });
+            })
+            .fail(function() {
+              notify("服务器走丢了", 'danger', 'fa fa-exclamation-triangle fa-fw');
+              usernameFlag = false;
+            });
         }
         break;
       case "login_password":
@@ -108,20 +110,22 @@ $(function() {
         var field = this.id;
         field = field.slice(field.indexOf('_') + 1);
         if (validator.isFieldValid(field, $(this).val())) {
-          $.post('/user/validate-unique', { field: field, value: $(this).val() }, function(data, status) {
-            if (status === 'success') {
-              if (!data.isUnique) {
-                $(self).addClass('inputRigth');
-              } else {
-                $(self).addClass('inputError');
-                var field = self.id;
-                field = field.slice(field.indexOf('_') + 1);
-                notify(validator.getErrorMessage2(field), 'danger', 'fa fa-exclamation-triangle fa-fw');
+          $.post('/user/validate-unique', { field: field, value: $(this).val() })
+            .done(function(data, status) {
+              if (status === 'success') {
+                if (!data.isUnique) {
+                  $(self).addClass('inputRigth');
+                } else {
+                  $(self).addClass('inputError');
+                  var field = self.id;
+                  field = field.slice(field.indexOf('_') + 1);
+                  notify(validator.getErrorMessage2(field), 'danger', 'fa fa-exclamation-triangle fa-fw');
+                }
               }
-            }
-          }).error(function() {
-            notify('服务器走丢了', 'danger', 'fa fa-exclamation-triangle fa-fw');
-          });
+            })
+            .fail(function() {
+              notify('服务器走丢了', 'danger', 'fa fa-exclamation-triangle fa-fw');
+            });
         } else if ($(this).val() === '') {
           $(this).removeClass('inputError').removeClass('inputRigth');
         } else {

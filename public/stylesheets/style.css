@@ -13,6 +13,7 @@ body {
 
 
 
+
 /*==============================================*/
 
 
@@ -94,6 +95,7 @@ body {
 
 
 
+
 /*==============================================*/
 
 
@@ -128,6 +130,7 @@ span.welcome {
 
 
 
+
 /*==============================================*/
 
 
@@ -148,6 +151,7 @@ a.navbar-brand:before {
 	font-weight: normal;
 	margin-right: 0.4em;
 }
+
 
 
 
@@ -266,6 +270,7 @@ form.form-horizontal {
 	background-repeat: no-repeat;
 	background-position: 95% 50%;
 }
+
 
 
 
@@ -398,6 +403,7 @@ p.sign-record-date {
 }
 
 
+
 /*==============================================*/
 
 
@@ -418,25 +424,38 @@ p.sign-record-date {
 
 button.hw,
 a.hw {
-	border: 1px solid #777;
-	color: black;
-	border-radius: 5px;
+	color: white;
+	border-radius: 2px;
 	padding: 5px 10px;
+	border: 1px solid #3ec9cb;
 	cursor: pointer;
 	outline: none;
-	background-color: transparent;
+	background-color: #3ec9cb;
 	text-decoration: none;
-}
-
-#student h3 {
 	text-align: center;
-	margin: 10px;
+	font-weight: bold;
+	line-height: 1.5;
+	text-transform: capitalize;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 a.hw {
 	display: block;
 	width: 100%;
+}
+
+button.hw:hover,
+a.hw:hover {
+	border: 1px solid #777;
+	background-color: transparent;
+	color: black;
+	font-weight: normal;
+}
+
+#student h3 {
 	text-align: center;
+	margin: 10px;
 }
 
 a#teacher-create-class,
@@ -480,4 +499,35 @@ input.modal-input[name=submithw] {
 textarea#hwmsg {
 	max-width: 100%;
 	min-width: 100%;
+}
+
+#hw-detail,
+.stuclass {
+	margin-top: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#hw-detail table,
+.stuclass table {
+	border-collapse: collapse;
+}
+
+#hw-detail table td,
+#hw-detail table th,
+.stuclass table td,
+.stuclass table th {
+	padding: .5em;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+#hw-detail table input {
+	width: 5em;
+	padding: 5px 10px;
+	border: 1px solid #777;
+	border-radius: 4px;
+	outline: none;
 }
